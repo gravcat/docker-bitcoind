@@ -18,6 +18,7 @@ VOLUME ~/.bitcoin/
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:bitcoin/bitcoin -y
+RUN apt-get update -y # update index after ppa add
 
 # install bitcoind and configuration
 RUN apt-get install bitcoind -y
