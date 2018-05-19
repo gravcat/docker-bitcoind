@@ -12,7 +12,7 @@ ENV P2P_PORT 8333
 # Json-RPC and P2P ports respectively. Open only 8333 externally.
 EXPOSE ${JSONRPC_PORT}
 EXPOSE ${P2P_PORT}
-VOLUME ~/.bitcoin/
+VOLUME /root/.bitcoin/
 
 # https://bitcoin.org/en/full-node
 RUN apt-get update -y && apt-get upgrade -y
