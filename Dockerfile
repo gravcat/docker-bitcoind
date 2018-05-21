@@ -33,7 +33,7 @@ CMD bitcoind \
       -disablewallet \
       -printtoconsole \
       -server \
-      -rpcuser $RPC_USER \
-      -rpcpassword $RPC_PASS \      
+      -rpcuser=$RPC_USER \
+      -rpcpassword=$RPC_PASS \      
       -rpcport=$JSONRPC_PORT \
       -rpcthreads=$JSONRPC_THREADS
