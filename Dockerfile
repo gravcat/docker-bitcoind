@@ -24,4 +24,5 @@ RUN apt-get update -y # update index after ppa add
 # install bitcoind and configuration
 RUN apt-get install bitcoind -y
 
-ENTRYPOINT bitcoind -dbcache=$DBCACHE_SIZE_MB -par=$SCR_VER_THREADS -txindex -port=$BITCOIND_PORT -disablewallet -printtoconsole -server -rpcallowip=$RPC_ALLOW_IPS -rpcport=$JSONRPC_PORT -rpcthreads=4
+ENTRYPOINT bitcoind
+CMD -dbcache=$DBCACHE_SIZE_MB -par=$SCR_VER_THREADS -txindex -port=$BITCOIND_PORT -disablewallet -printtoconsole -server -rpcallowip=$RPC_ALLOW_IPS -rpcport=$JSONRPC_PORT -rpcthreads=$JSONRPC_THREADS
