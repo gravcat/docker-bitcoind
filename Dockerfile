@@ -8,6 +8,7 @@ ENV SCR_VER_THREADS -2
 ENV JSONRPC_THREADS 4
 ENV JSONRPC_PORT 8332
 ENV P2P_PORT 8333
+ENV RPC_ALLOW_IPS *
 
 # Json-RPC and P2P ports respectively. Open only 8333 externally.
 EXPOSE ${JSONRPC_PORT}
@@ -23,4 +24,4 @@ RUN apt-get update -y # update index after ppa add
 # install bitcoind and configuration
 RUN apt-get install bitcoind -y
 
-ENTRYPOINT bitcoind -dbcache=$DBCACHE_SIZE_MB -par=$SCR_VER_THREADS -txindex -port=$BITCOIND_PORT -disablewallet -printtoconsole -server -rpcallowip=* -rpcport=$JSONRPC_PORT -rpcthreads=4
+ENTRYPOINT bitcoind -dbcache=$DBCACHE_SIZE_MB -par=$SCR_VER_THREADS -txindex -port=$BITCOIND_PORT -disablewallet -printtoconsole -server -rpcallowip=$RPC_ALLOW_IPS -rpcport=$JSONRPC_PORT -rpcthreads=4
