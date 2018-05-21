@@ -5,6 +5,8 @@ MAINTAINER Nick Thieling <nick@adrift.io>
 ENV BITCOIND_PORT 8333
 ENV DBCACHE_SIZE_MB 4096
 ENV SCR_VER_THREADS -2
+ENV RPC_USER bitcoinrpc
+ENV RPC_PASS localrpc
 ENV JSONRPC_THREADS 4
 ENV JSONRPC_PORT 8332
 ENV P2P_PORT 8333
@@ -23,5 +25,15 @@ RUN apt-get update -y # update index after ppa add
 # install bitcoind and configuration
 RUN apt-get install bitcoind -y
 
-ENTRYPOINT bitcoind
-CMD -dbcache=$DBCACHE_SIZE_MB -par=$SCR_VER_THREADS -txindex -port=$BITCOIND_PORT -disablewallet -printtoconsole -server -rpcport=$JSONRPC_PORT -rpcthreads=$JSONRPC_THREADS
+CMD bitcoind \
+      -dbcache=$DBCACHE_SIZE_MB \
+      -par=$SCR_VER_THREADS \
+      -txindex \
+      -port=$BITCOIND_PORT \
+      -disablewallet \
+      -printtoconsole \
+      -server \
+      -rpcuser $RPC_USER \
+      -rpcpassword $RPC_PASS \      
+      -rpcport=$JSONRPC_PORT \
+      -rpcthreads=$JSONRPC_THREADS
