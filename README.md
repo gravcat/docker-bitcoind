@@ -5,7 +5,7 @@ quick-start w/ rpc
 docker run \
     nthieling/bitcoind:latest \
     -p 8222:8332 -p 8333:8333 \
-    -dbcache \
+    -dbcache 4096 \
     -par=-2 \
     -txindex \
     -port=8333 \
