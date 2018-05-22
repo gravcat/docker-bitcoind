@@ -15,4 +15,4 @@ RUN apt-get update -y # update index after ppa add
 # install bitcoind and configuration
 RUN apt-get install bitcoind -y
 
-CMD bitcoind 
+CMD [ "bitcoind" ]
