@@ -2,8 +2,8 @@ FROM ubuntu:xenial
 MAINTAINER Nick Thieling <nick@adrift.io>
 
 # Json-RPC and P2P ports respectively. Open only 8333 externally.
-EXPOSE ${JSONRPC_PORT}
-EXPOSE ${P2P_PORT}
+EXPOSE 8332
+EXPOSE 8333
 VOLUME /root/.bitcoin/
 
 # https://bitcoin.org/en/full-node
