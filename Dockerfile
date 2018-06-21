@@ -13,6 +13,6 @@ RUN add-apt-repository ppa:bitcoin/bitcoin -y
 RUN apt-get update -y # update index after ppa add
 
 # install bitcoind and configuration
-RUN apt-get install bitcoind -y
+RUN apt-get install bitcoind=0.16.0-xenial1 -y
 
 ENTRYPOINT [ "bitcoind" ]
